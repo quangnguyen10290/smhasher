@@ -150,7 +150,11 @@ void FilterOutliers2 ( std::vector<double> & v )
 
 NEVER_INLINE int64_t timehash ( pfHash hash, const void * key, int len, int seed )
 {
+#if defined(__CODEGEARC__)       // for RAD Studio
+  volatile int64_t begin,end;
+#else
   volatile register int64_t begin,end;
+#endif
   
   uint32_t temp[16];
   
