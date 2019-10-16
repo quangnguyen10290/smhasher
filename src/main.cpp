@@ -9,6 +9,13 @@
 #include <stdio.h>
 #include <time.h>
 
+#if defined(__CODEGEARC__)
+#if defined(__WIN32__)
+#pragma comment(lib, "SMHasherSupport.lib")
+#elif defined(_WIN64)
+#pragma comment(lib, "SMHasherSupport.a")
+#endif
+#endif      // __CODEGEARC__
 //-----------------------------------------------------------------------------
 // Configuration. TODO - move these to command-line flags
 
